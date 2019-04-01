@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Make yourself something</title>
+
+    <style>
+    body {
+    font-family: sans-serif;
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-items: center;
+    background-color: rgba(255, 255, 255, 0.253);
+    text-align: center;
+}
+
+button {
+    width: 300px;
+    height: 300px;
+    background-color: rgb(226, 35, 35);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 2.5em;
+    transition: 500ms;
+    cursor: pointer;
+    outline: none;
+    justify-self: center;
+}
+
+button:hover {
+    background-color: rgb(131, 31, 197);
+    box-shadow: rgba(0, 0, 0, 0.397) 0px 0px 30px;
+}
+
+#counter {
+    font-size: 3em;
+    color: rgb(57, 14, 70);
+   
+}
+
+.zoom {
+    animation: zoom 2s ease-in-out;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(5);
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="main-wrapper">
+       <div id="message">
+            <h1>Click button below to become something!</h1>
+            <button type="button" id="btn">Click & Become something!</button>
+       </div>
+       <div id="message2">
+            <h1 id="cong"></h1>
+            <h1 id="counter"></h1>
+       </div>
+    </div>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', () => {
+            document.getElementById('message').style.display = 'none'
+            document.getElementById('cong').innerHTML = 'Congratulations! You became...'
+                let counter = 5;
+             let timer =  setInterval(() => {
+                 document.getElementById('counter').innerHTML = counter;
+                    counter--
+                if(counter === -1) {
+                    clearInterval(timer)
+                    document.getElementById('counter').innerHTML = 'April Fool!!😂'
+                    document.getElementById('counter').classList.add('zoom');
+                }
+                },1000)
+        
+
+          
+        })
+
+           
+          
+            
+    
+    </script>
+</body>
+</html>
